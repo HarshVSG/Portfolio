@@ -1,0 +1,141 @@
+/* Loading spinner for form submission */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Particles animation */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    background-color: rgba(99, 102, 241, 0.2);
+    border-radius: 50%;
+    animation: float linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Hover effect for project cards */
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 1;
+    border-radius: var(--border-radius);
+    pointer-events: none;
+}
+
+.project-card:hover::after {
+    opacity: 1;
+}
+
+.project-card h3, 
+.project-card p,
+.project-card .project-links {
+    position: relative;
+    z-index: 2;
+}
+
+/* Text underline animation */
+.underline-animation {
+    position: relative;
+    display: inline-block;
+}
+
+.underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Skill progress bars */
+.skill-progress {
+    height: 8px;
+    width: 100%;
+    background-color: var(--gray-color);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.skill-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+    border-radius: 10px;
+    transform: translateX(-100%);
+    transition: transform 1s cubic-bezier(0.1, 0.5, 0.2, 1);
+}
+
+.skill-item.animated .skill-progress-bar {
+    transform: translateX(0);
+}
+
+/* Social media icons hover animation */
+.social-bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
